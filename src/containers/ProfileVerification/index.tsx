@@ -171,9 +171,10 @@ class ProfileVerificationComponent extends React.Component<Props> {
                                 <Tooltip title={`page.body.profile.verification.${labelToCheck}.rejected.tooltip`} />
                             }>
                             <div className="pg-profile-page-verification__step__label pg-profile-page-verification__step__label--rejected">
-                                <Link to="/confirm">
-                                    <FormattedMessage id="page.body.profile.verification.reverify" />
+                                <Link to={labelToCheck === 'document' ? '/confirm/identity' : labelToCheck === 'address' ? '/confirm/address' : '/confirm'}>
+                                    <FormattedMessage id="page.body.profile.verification.verify" />
                                 </Link>
+
                                 <CrossIcon />
                             </div>
                         </OverlayTrigger>
@@ -194,9 +195,10 @@ class ProfileVerificationComponent extends React.Component<Props> {
                             </div>
                         </div>
                         <div className="pg-profile-page-verification__step__button pg-profile-page-verification__step__button--blocked">
-                            <Link to="/confirm">
+                            <Link to={labelToCheck === 'document' ? '/confirm/identity' : labelToCheck === 'address' ? '/confirm/address' : '/confirm'}>
                                 <FormattedMessage id="page.body.profile.verification.verify" />
                             </Link>
+
                         </div>
                     </div>
                 );
@@ -215,9 +217,10 @@ class ProfileVerificationComponent extends React.Component<Props> {
                             </div>
                         </div>
                         <div className="pg-profile-page-verification__step__button pg-profile-page-verification__step__button--active">
-                            <Link to="/confirm">
+                            <Link to={labelToCheck === 'document' ? '/confirm/identity' : labelToCheck === 'address' ? '/confirm/address' : '/confirm'}>
                                 <FormattedMessage id="page.body.profile.verification.verify" />
                             </Link>
+
                         </div>
                     </div>
                 );
